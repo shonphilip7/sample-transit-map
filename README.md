@@ -4,7 +4,7 @@ Display map of the state of Kerala using pre-generated map tiles on a local mach
 While not part of the dockerfile, tiles directory is required for displaying the map. Following are the steps for generating tiles:
 1. Run the setup_tile_env.sh script. The script references commands from https://switch2osm.org/serving-tiles/manually-building-a-tile-server-ubuntu-20-04-lts/ </br>
 2. Once the environment is set, run the the python script generate_tiles.py to generate tiles. This script is a modified version of https://github.com/openstreetmap/mapnik-stylesheets/blob/master/generate_tiles.py </br>
-Running the above steps should generate the tiles directory. As the tiles directory is already included in the repo the above steps are not required. The reason to not include the script for generating tiles in the dockerfile itself is that it would take a long time for docker to build. 
+<p>Running the above steps should generate the tiles directory. As the tiles directory is already included in the repo the above steps are not required. The reason to not include the script for generating tiles in the dockerfile itself is that it would take a long time for docker to build. </p>
 ## Displaying the tiles
 1. git clone https://github.com/shonphilip7/sample-transit-map.git </br>
 2. docker build -t map-tiles-image:1.0 . </br>
