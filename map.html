@@ -24,19 +24,35 @@
     <script>
       // initialize Leaflet
       var map = L.map('map').setView({lon: 76.29168, lat: 9.99432}, 15);
-
       // add the OpenStreetMap tiles
       L.tileLayer('http://localhost/tiles/{z}/{x}/{y}.png', {
         minZoom: 9,
         maxZoom: 15,
         attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
       }).addTo(map);
-
-      // show the scale bar on the lower left corner
-      L.control.scale({imperial: true, metric: true}).addTo(map);
-
-      // show a marker on the map
-      L.marker({lon: 76.29168, lat: 9.99432}).bindPopup('Kaloor').addTo(map);
+      let apiData;
+      async function fetchJsonData(url) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          // The .json() method parses the JSON response into a JS object
+          apiData = await response.json(); 
+          var pointsForLineAndMarkers = [];
+          //You can now use apiData within this async scope
+          apiData.forEach(function(element){
+            pointsForLineAndMarkers.push([element.lat, element.lng]);
+          }); 
+          // Add the polyline to the map
+          var polyline = L.polyline(pointsForLineAndMarkers, {color: '#000000'}).addTo(map);
+          // Zoom the map to fit the polyline's bounds
+          map.fitBounds(polyline.getBounds());
+        } catch (error) {
+          console.error('There has been a problem with your fetch operation:', error);
+        }
+      }
+      fetchJsonData('./R1_1.json');
     </script>
   </body>
 </html>

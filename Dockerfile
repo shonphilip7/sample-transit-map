@@ -14,6 +14,7 @@ COPY tiles/13 /var/www/html/tiles/13
 COPY tiles/14 /var/www/html/tiles/14
 COPY tiles/15 /var/www/html/tiles/15
 COPY map.html /var/www/html/
+COPY R1_1.json /var/www/html/
 # Expose port 80 to the host machine
 EXPOSE 80
 # Command to run Apache in the foreground, ensuring the container stays running
