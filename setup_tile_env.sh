@@ -57,20 +57,8 @@ if [ -d "$HOME/data" ]; then
 fi
 mkdir "$HOME/data"
 cd "$HOME/data"
-#wget https://download.geofabrik.de/north-america/us/delaware-latest.osm.pbf
-#wget https://download.geofabrik.de/north-america/us/new-jersey-latest.osm.pbf
-#wget https://download.geofabrik.de/north-america/us/pennsylvania-latest.osm.pbf
-#wget https://download.geofabrik.de/north-america/us/new-york-latest.osm.pbf
-#wget https://download.geofabrik.de/north-america/us/maryland-latest.osm.pbf
 wget https://download.geofabrik.de/asia/india/southern-zone-latest.osm.pbf
 echo "--- Downloaded data"
-#osmium is used for merging different data into a single file
-#sudo apt install osmium-tool
-#echo "--- Installed osmium ---"
-#osmium merge delaware-latest.osm.pbf new-jersey-latest.osm.pbf pennsylvania-latest.osm.pbf new-york-latest.osm.pbf maryland-latest.osm.pbf -o septa-service-states.pbf
-#echo "--- Merged data into single file---"
-#The following command will insert the OpenStreetMap data you downloaded earlier into the database.
-#osm2pgsql -d $DB_NAME --create --slim  -G --hstore --tag-transform-script $HOME/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S $HOME/src/openstreetmap-carto/openstreetmap-carto.style $HOME/data/septa-service-states.pbf
 osm2pgsql -d $DB_NAME --create --slim  -G --hstore --tag-transform-script $HOME/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S $HOME/src/openstreetmap-carto/openstreetmap-carto.style $HOME/data/southern-zone-latest.osm.pbf
 echo "Loaded data into DB"
 cd "$HOME/src/openstreetmap-carto/"
