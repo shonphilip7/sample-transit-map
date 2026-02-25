@@ -11,7 +11,7 @@ A starter project for displaying map of a region using pre-generate raster tiles
 2. docker build -t map-tiles-image:1.0 .
 3. docker run -d --name map-tiles-container -p 8080:80 map-tiles-image:1.0
 <p>
-  At this point opening the browser to http://localhost:8080/map.html should show a map of Kerala. Using locally hosted map tiles (self-hosting) offers significant benefits related to control and performance compared to referencing openstreetmap directly from the official host.
+  At this point opening the browsing to http://localhost:8080/map.html should show a map of Kerala with the KMRL route based on a static lat and lon from R1_1.json file. The JSON file is mockup of the API from <a href="https://github.com/shonphilip7/transit-app-api">this repo</a>. Using locally hosted map tiles (self-hosting) offers significant benefits related to control and performance compared to referencing openstreetmap directly from the official host.
 <pre>
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
