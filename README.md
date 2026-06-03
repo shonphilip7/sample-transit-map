@@ -4,7 +4,7 @@ A starter project for displaying map of a region using pre-generate raster tiles
 2. Run the generate_tiles.py script in . This is a modified version of the script from the <a href="https://github.com/openstreetmap/mapnik-stylesheets/blob/master/generate_tiles.py">openstreetmap project</a>.
 3. Docker
 <p>
-  The end result of running the above two scripts is the 'tiles' directory which is already included in this repo so no need to run the scripts unless they need to be modified as per personal requirement. Ideally these scripts would be included in the Dockerfile to avoid installing unnecessary packages on the local machine but the image size would be above 20 GB and it would take a long time to build it so it was avoided.   
+  The end result of running the above two scripts is the 'tiles' directory which is already included in this repo so no need to run the scripts unless they need to be modified as per personal requirement. Ideally, these scripts would be in the Dockerfile to avoid installing unnecessary packages on the local machine but the image size would have been above 20 GB so it was not included.   
 </p>
 
 ## Displaying the tiles
