@@ -51,7 +51,7 @@ docker run -d --name map-tiles-container -p 8080:80 map-tiles-image:1.0
 ```
 
 After running the command, open your web browser and navigate to:
-👉 **`http://localhost:8080/map.html`** to view the Leaflet map. At this point it should show a map of Kerala with the path taken by Route 1 KMRL transit agency based on lat and lon entries from JSON file in the root directory.
+👉 **`http://localhost:8080/map.html`** to view the Leaflet map. At this point it should show a map of Kerala with the path taken by Route 1 KMRL transit agency based on lat and lon entries from JSON file in the data directory.
 
 ---
 
